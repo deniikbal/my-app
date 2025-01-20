@@ -133,128 +133,137 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 py-8 px-4">
-      <div className="bg-white/90 backdrop-blur-lg p-5 rounded-2xl shadow-2xl w-full max-w-md border border-white/20">
-        <h1 className="text-2xl font-bold mb-4 text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+    <div className='min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 py-8 px-4'>
+      <div className='bg-white/90 backdrop-blur-lg p-5 rounded-2xl shadow-2xl w-full max-w-md border border-white/20'>
+        <h1 className='text-2xl font-bold mb-4 text-center bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent'>
           Untuk Menyenangkan Kamu
         </h1>
-        
-        <div className="space-y-2">
+
+        <div className='space-y-2'>
           <div>
-            <label htmlFor="numbers" className="block font-semibold mb-2">
+            <label htmlFor='numbers' className='block font-semibold mb-2'>
               Masukkan angka (pisahkan dengan koma):
             </label>
-            <div className="space-y-4">
+            <div className='space-y-4'>
               <div>
                 <input
-                  type="file"
-                  id="fileInput"
-                  className="hidden"
-                  accept=".xlsx, .xls"
+                  type='file'
+                  id='fileInput'
+                  className='hidden'
+                  accept='.xlsx, .xls'
                   onChange={handleFileUpload}
                   ref={fileInputRef}
                 />
                 <label
-                  htmlFor="fileInput"
-                  className="w-full bg-white/90 backdrop-blur-sm border border-gray-200 px-3 py-2 rounded-lg hover:bg-gray-50 transition-all shadow-sm hover:shadow-md cursor-pointer flex items-center justify-center text-sm"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                  htmlFor='fileInput'
+                  className='w-full bg-white/90 backdrop-blur-sm border border-gray-200 px-3 py-2 rounded-lg hover:bg-gray-50 transition-all shadow-sm hover:shadow-md cursor-pointer flex items-center justify-center text-sm'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    className='h-5 w-5 mr-2'
+                    viewBox='0 0 20 20'
+                    fill='currentColor'>
+                    <path
+                      fillRule='evenodd'
+                      d='M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z'
+                      clipRule='evenodd'
+                    />
                   </svg>
                   Upload File Excel
                 </label>
-                <div className="mt-2 text-center text-sm">
-                  <a 
-                    href="/template_upload.xlsx" 
+                <div className='mt-2 text-center text-sm'>
+                  <a
+                    href='/template_upload.xlsx'
                     download
-                    className="text-blue-600 hover:text-blue-800 hover:underline"
-                  >
+                    className='text-blue-600 hover:text-blue-800 hover:underline'>
                     Download Template Excel
                   </a>
                 </div>
               </div>
 
-              <div className="text-center text-sm text-gray-500 my-2">atau</div>
+              <div className='text-center text-sm text-gray-500 my-2'>atau</div>
 
               <textarea
-                id="numbers"
+                id='numbers'
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                className="w-full p-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all min-h-[80px] text-sm"
-                placeholder="Masukkan angka secara manual (pisahkan dengan koma)"
+                className='w-full p-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all min-h-[80px] text-sm'
+                placeholder='Masukkan angka secara manual (pisahkan dengan koma)'
               />
               {fileInputCount > 0 && (
-                <div className="text-sm text-gray-500">
+                <div className='text-sm text-gray-500'>
                   {fileInputCount} angka berhasil diinput dari file Excel
                 </div>
               )}
             </div>
           </div>
 
-            <div className="grid grid-cols-2 gap-2">
+          <div className='grid grid-cols-2 gap-2'>
             <div>
-              <label htmlFor="min" className="block font-semibold mb-2">
+              <label htmlFor='min' className='block font-semibold mb-2'>
                 Angka Minimal:
               </label>
               <input
-                type="number"
-                id="min"
+                type='number'
+                id='min'
                 value={minRange}
                 onChange={(e) => setMinRange(parseInt(e.target.value))}
-                className="w-full p-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all text-sm"
+                className='w-full p-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all text-sm'
               />
             </div>
             <div>
-              <label htmlFor="max" className="block font-semibold mb-2">
+              <label htmlFor='max' className='block font-semibold mb-2'>
                 Angka Maksimal:
               </label>
               <input
-                type="number"
-                id="max"
+                type='number'
+                id='max'
                 value={maxRange}
                 onChange={(e) => setMaxRange(parseInt(e.target.value))}
-                className="w-full p-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all text-sm"
+                className='w-full p-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all text-sm'
               />
             </div>
           </div>
 
-          {error && (
-            <div className="text-red-500 text-sm">{error}</div>
-          )}
+          {error && <div className='text-red-500 text-sm'>{error}</div>}
 
-            <button
-              onClick={convertNumbers}
-              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 px-4 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-[1.02] active:scale-95 shadow-sm hover:shadow-md text-sm"
-            >
+          <button
+            onClick={convertNumbers}
+            className='w-full bg-slate-600 text-white py-2 px-4 rounded-lg hover:bg-slate-700 transition-all transform hover:scale-[1.02] active:scale-95 shadow-sm hover:shadow-md text-sm'>
             Konversi
           </button>
 
           {convertedNumbers.length > 0 && (
             <div>
-              <div className="flex justify-between items-center mb-1">
-                <h2 className="font-semibold">Hasil Konversi:</h2>
-                <div className="flex gap-2">
+              <div className='flex justify-between items-center mb-1'>
+                <h2 className='font-semibold'>Hasil Konversi:</h2>
+                <div className='flex gap-2'>
                   <button
                     onClick={copyResult}
-                    className="text-xs bg-blue-50 backdrop-blur-sm border border-blue-200 px-2.5 py-1 rounded-md hover:bg-blue-100 transition-all shadow-sm hover:shadow-md active:scale-95 active:opacity-80 text-blue-700 hover:text-blue-800"
-                  >
+                    className='text-xs bg-blue-50 backdrop-blur-sm border border-blue-200 px-2.5 py-1 rounded-md hover:bg-blue-100 transition-all shadow-sm hover:shadow-md active:scale-95 active:opacity-80 text-blue-700 hover:text-blue-800'>
                     Copy
                   </button>
                   <button
                     onClick={downloadExcel}
-                    className="text-xs bg-green-50 backdrop-blur-sm border border-green-200 px-2.5 py-1 rounded-md hover:bg-green-100 transition-all shadow-sm hover:shadow-md flex items-center gap-1 active:scale-95 active:opacity-80 text-green-700 hover:text-green-800"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                    className='text-xs bg-green-50 backdrop-blur-sm border border-green-200 px-2.5 py-1 rounded-md hover:bg-green-100 transition-all shadow-sm hover:shadow-md flex items-center gap-1 active:scale-95 active:opacity-80 text-green-700 hover:text-green-800'>
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      className='h-4 w-4'
+                      viewBox='0 0 20 20'
+                      fill='currentColor'>
+                      <path
+                        fillRule='evenodd'
+                        d='M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z'
+                        clipRule='evenodd'
+                      />
                     </svg>
                     Excel
                   </button>
                 </div>
               </div>
               <textarea
-                value={convertedNumbers.join(", ")}
+                value={convertedNumbers.join(', ')}
                 readOnly
-                className="w-full p-2 border-2 border-gray-200 rounded-lg bg-white/50 backdrop-blur-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all min-h-[80px] text-sm"
+                className='w-full p-2 border-2 border-gray-200 rounded-lg bg-white/50 backdrop-blur-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all min-h-[80px] text-sm'
               />
             </div>
           )}
