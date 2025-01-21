@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Siswa {
+  id        Int      @id @default(autoincrement())
+  nama      String
+  kelas     String
+  jenis_kelamin String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

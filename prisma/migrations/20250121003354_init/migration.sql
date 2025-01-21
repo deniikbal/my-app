@@ -1,0 +1,9 @@
+-- CreateTable
+CREATE TABLE "Siswa" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "nama" TEXT NOT NULL,
+    "kelas" TEXT NOT NULL,
+    "jenis_kelamin" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL
+);
