@@ -129,7 +129,7 @@ export default function KonversiPage() {
     <div className='min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 py-8 px-4'>
       <div className='bg-white/90 backdrop-blur-lg p-5 rounded-2xl shadow-2xl w-full max-w-md border border-white/20'>
         <h1 className='text-2xl font-bold mb-4 text-center bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent'>
-          Untuk Menyenangkan Kamu
+          Untuk Menyenangkan Kamu 🎉
         </h1>
 
         <div className='space-y-2'>
