@@ -11,15 +11,9 @@ export default function Home() {
               Sistem Manajemen Sekolah Modern
             </h1>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Kelola data siswa, nilai, dan administrasi sekolah dengan mudah dan efisien
+              Kelola nilai dan administrasi sekolah dengan mudah dan efisien
             </p>
             <div className="mt-8 space-x-4">
-              <Link
-                href="/siswa"
-                className="inline-block bg-emerald-600 text-white py-3 px-6 rounded-lg hover:bg-emerald-700 transition-all"
-              >
-                Mulai Kelola Data
-              </Link>
               <Link
                 href="/konversi"
                 className="inline-block bg-slate-600 text-white py-3 px-6 rounded-lg hover:bg-slate-700 transition-all"
@@ -37,29 +31,6 @@ export default function Home() {
           <div className="text-center">
             <h2 className="text-3xl font-bold text-gray-800 mb-8">Fitur Unggulan</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="p-6 rounded-lg">
-                <div className="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg
-                    className="w-6 h-6 text-emerald-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  Manajemen Data Siswa
-                </h3>
-                <p className="text-gray-500">
-                  Kelola data siswa secara lengkap dan terstruktur
-                </p>
-              </div>
 
               <div className="p-6 rounded-lg">
                 <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
