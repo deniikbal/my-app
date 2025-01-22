@@ -1,39 +1,33 @@
-import { PrismaClient } from '@prisma/client';
-import { NextResponse } from 'next/server';
+import { NextResponse } from 'next/server'
+import prisma from '@/lib/prisma'
 
-const prisma = new PrismaClient();
-
-// GET all siswa
 export async function GET() {
   try {
-    const siswa = await prisma.siswa.findMany();
-    return NextResponse.json(siswa);
+    const siswa = await prisma.siswa.findMany()
+    return NextResponse.json(siswa)
   } catch (error) {
     return NextResponse.json(
-      { message: 'Failed to get data' },
+      { error: 'Gagal mengambil data siswa' },
       { status: 500 }
-    );
+    )
   }
 }
 
-// POST create new siswa
 export async function POST(request: Request) {
   try {
-    const { nama, kelas, jenis_kelamin } = await request.json();
-
-    const newSiswa = await prisma.siswa.create({
+    const data = await request.json()
+    const siswa = await prisma.siswa.create({
       data: {
-        nama,
-        kelas,
-        jenis_kelamin
+        nama: data.nama,
+        kelas: data.kelas,
+        jenis_kelamin: data.jenis_kelamin
       }
-    });
-
-    return NextResponse.json(newSiswa, { status: 201 });
+    })
+    return NextResponse.json(siswa)
   } catch (error) {
     return NextResponse.json(
-      { message: 'Failed to create data' },
+      { error: 'Gagal menambahkan siswa' },
       { status: 500 }
-    );
+    )
   }
 }

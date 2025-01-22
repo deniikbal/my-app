@@ -1,35 +1,54 @@
-import { PrismaClient } from '@prisma/client';
-import { NextResponse } from 'next/server';
+import { NextResponse } from 'next/server'
+import prisma from '@/lib/prisma'
 
-const prisma = new PrismaClient();
+export async function GET(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const siswa = await prisma.siswa.findUnique({
+      where: { id: Number(params.id) }
+    })
+    
+    if (!siswa) {
+      return NextResponse.json(
+        { error: 'Siswa tidak ditemukan' },
+        { status: 404 }
+      )
+    }
+    
+    return NextResponse.json(siswa)
+  } catch (error) {
+    return NextResponse.json(
+      { error: 'Gagal mengambil data siswa' },
+      { status: 500 }
+    )
+  }
+}
 
-// PUT update siswa
 export async function PUT(
   request: Request,
   { params }: { params: { id: string } }
 ) {
   try {
-    const { nama, kelas, jenis_kelamin } = await request.json();
-
-    const updatedSiswa = await prisma.siswa.update({
+    const data = await request.json()
+    const siswa = await prisma.siswa.update({
       where: { id: Number(params.id) },
       data: {
-        nama,
-        kelas,
-        jenis_kelamin
+        nama: data.nama,
+        kelas: data.kelas,
+        jenis_kelamin: data.jenis_kelamin
       }
-    });
-
-    return NextResponse.json(updatedSiswa);
+    })
+    return NextResponse.json(siswa)
   } catch (error) {
     return NextResponse.json(
-      { message: 'Failed to update data' },
+      { error: 'Gagal mengupdate siswa' },
       { status: 500 }
-    );
+    )
   }
 }
 
-// DELETE siswa
 export async function DELETE(
   request: Request,
   { params }: { params: { id: string } }
@@ -37,13 +56,12 @@ export async function DELETE(
   try {
     await prisma.siswa.delete({
       where: { id: Number(params.id) }
-    });
-
-    return NextResponse.json({ message: 'Data deleted successfully' });
+    })
+    return NextResponse.json({ message: 'Siswa berhasil dihapus' })
   } catch (error) {
     return NextResponse.json(
-      { message: 'Failed to delete data' },
+      { error: 'Gagal menghapus siswa' },
       { status: 500 }
-    );
+    )
   }
 }
